@@ -1,6 +1,6 @@
 {
 	"name" : "Distance.js",
-	"version" : "0.0.0",
+	"version" : "0.0.1",
 	"private" : false,
 	"author"  : "Jacob Lowe <http://jacoblowe.me>",
 	"dependencies": {
