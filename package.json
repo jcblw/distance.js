@@ -1,10 +1,11 @@
 {
-	"name" : "Distance.js",
-	"version" : "0.0.1",
-	"private" : false,
-	"author"  : "Jacob Lowe <http://jacoblowe.me>",
-	"dependencies": {
-		"grunt" : "0.4.1",
-		"mocha" : "1.8.2"
-	}
+  "name": "Distance",
+  "version": "0.0.3",
+  "private": false,
+  "author": "Jacob Lowe <http://jacoblowe.me>",
+  "devDependencies": {
+  	"grunt": "0.4.1",
+  	"grunt-contrib-uglify": "0-6-1",
+    "grunt-simple-mocha": "~0.3.2"
+  }
 }

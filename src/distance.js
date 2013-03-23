@@ -124,4 +124,6 @@
 		this.unit = unit;
 	};
 
+	exports.Distance = Distance; 
+
 }(this));
