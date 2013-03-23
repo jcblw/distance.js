@@ -34,10 +34,10 @@ Test build
 grunt test
 ```
 
-production build
+Production build
 
 ```shell
-grunt build --minify
+grunt minify
 ```
 
 
