@@ -25,7 +25,7 @@
 
 		if(typeof position === 'object' && position.length){
 
-			if(position[0].length){
+			if(position[0].length && typeof position[0] === "object"){
 
 				this.start = [];
 
