@@ -61,26 +61,27 @@ describe("Distance", function(){
 		})
 
 	})
-	// describe(".unit()", function(){
-	// 	it("should work with the return of Distance", function(){
-	// 		var result = Distance().from([[33.9533,117.3953]]).to([34.1361,117.8644]);
-	// 		assert(29.8258, result.unit('miles'));
-	// 	})
-	// });
+	describe(".unit()", function(){
+		it("should return an array of converted distances", function(){
+			var result = Distance().from([[33.9533,117.3953]]).to([34.1361,117.8644]);
+			assert.equal(29.8258, result.unit('miles'));
+		})
+	})
 })
 
 describe("Number.prototype", function(){
 	describe(".unit()", function(){
 		var x = 28
 		it("should return the converted units from kilometers to miles accuratly", function(){
-			assert(17.3984, x.unit('miles'));
+			console.log([x, x.unit('miles')])
+			assert.equal(17.398388, x.unit('miles'));
 		})
 		it("should return the converted units from kilometers to feet accuratly", function(){
-			assert(91863.5, x.unit('feet'));
+			assert.equal(91863.52, x.unit('feet'));
 		})
 		it("should work with the return of Distance", function(){
 			var result = Distance().from([33.9533,117.3953]).to([34.1361,117.8644]);
-			assert(29.8258, result.unit('miles'));
+			assert.equal(29.711075704956006, result.unit('miles'));
 		})
 	})
 })
