@@ -21,13 +21,13 @@
 		return parseFloat(interger);
 	};
 
-	Distance.prototype.unit = function(unit){
-		var result = [];
-		for(var i = 0; i < this.length; i += 1){
-			result.push(this[i].unit(unit));
-		}
-		return result;
-	};
+	// Distance.prototype.unit = function(unit){
+	// 	var result = [];
+	// 	for(var i = 0; i < this.length; i += 1){
+	// 		result.push(this[i].unit(unit));
+	// 	}
+	// 	return result;
+	// };
 
 	Distance.prototype.from = function(position){
 
@@ -116,7 +116,6 @@
 			for(var i = 0; i < this.start.length; i += 1){
 				result.push(this.get(this.start[i], this.destination));
 			}
-			result.unit = this.unit;
 			return result;
 		}else{
 			// only one position to compare

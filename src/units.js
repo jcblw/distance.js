@@ -32,4 +32,12 @@
 		}
 	};
 
+	Array.prototype.unit = function(unit){
+		var result = [];
+		for(var i = 0; i < this.length; i += 1){
+			result.push(parseFloat(this[i]).unit(unit));
+		}
+		return result;
+	};
+
 }(this));

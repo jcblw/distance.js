@@ -61,19 +61,12 @@ describe("Distance", function(){
 		})
 
 	})
-	describe(".unit()", function(){
-		it("should return an array of converted distances", function(){
-			var result = Distance().from([[33.9533,117.3953]]).to([34.1361,117.8644]);
-			assert.equal(29.8258, result.unit('miles'));
-		})
-	})
 })
 
 describe("Number.prototype", function(){
 	describe(".unit()", function(){
 		var x = 28
 		it("should return the converted units from kilometers to miles accuratly", function(){
-			console.log([x, x.unit('miles')])
 			assert.equal(17.398388, x.unit('miles'));
 		})
 		it("should return the converted units from kilometers to feet accuratly", function(){
@@ -82,6 +75,19 @@ describe("Number.prototype", function(){
 		it("should work with the return of Distance", function(){
 			var result = Distance().from([33.9533,117.3953]).to([34.1361,117.8644]);
 			assert.equal(29.711075704956006, result.unit('miles'));
+		})
+	})
+})
+
+describe("Array.prototype", function(){
+	describe(".unit()", function(){
+		it("should return the converted units from kilometers to feet accuratly", function(){
+			assert.equal(91863.52, [28].unit('feet')[0]);
+		})
+		it("should return an array of converted distances", function(){
+			var result = Distance().from([[33.9533,117.3953]]).to([34.1361,117.8644]);
+			assert.equal(29.711075704956006, result.unit('miles')[0]);
+			assert.equal("object", typeof result.unit('miles'));
 		})
 	})
 })
