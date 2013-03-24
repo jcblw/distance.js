@@ -21,6 +21,11 @@
 		return parseFloat(interger);
 	};
 
+	// Distance.prototype.unit = function(){
+	// 	var result = [];
+	// 	for(var i = 0; i < this.lenght)
+	// };
+
 	Distance.prototype.from = function(position){
 
 		if(typeof position === 'object' && position.length){
@@ -113,10 +118,6 @@
 			// only one position to compare
 			return this.get(this.start, this.destination);
 		}
-	};
-
-	Distance.prototype.unit = function(unit){
-		this.unit = unit;
 	};
 
 	exports.Distance = Distance; 

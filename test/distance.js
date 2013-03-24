@@ -1,5 +1,6 @@
 var assert = require('assert')
 var Distance = require('../src/distance.js').Distance
+require('../src/units.js')
 
 describe("Distance", function(){
 	it("should return a new instance of itself", function(){
@@ -59,5 +60,27 @@ describe("Distance", function(){
 			assert.equal(true, (typeof result === "object" && result.length))
 		})
 
+	})
+	// describe(".unit()", function(){
+	// 	it("should work with the return of Distance", function(){
+	// 		var result = Distance().from([[33.9533,117.3953]]).to([34.1361,117.8644]);
+	// 		assert(29.8258, result.unit('miles'));
+	// 	})
+	// });
+})
+
+describe("Number.prototype", function(){
+	describe(".unit()", function(){
+		var x = 28
+		it("should return the converted units from kilometers to miles accuratly", function(){
+			assert(17.3984, x.unit('miles'));
+		})
+		it("should return the converted units from kilometers to feet accuratly", function(){
+			assert(91863.5, x.unit('feet'));
+		})
+		it("should work with the return of Distance", function(){
+			var result = Distance().from([33.9533,117.3953]).to([34.1361,117.8644]);
+			assert(29.8258, result.unit('miles'));
+		})
 	})
 })
