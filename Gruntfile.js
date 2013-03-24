@@ -41,6 +41,6 @@ module.exports = function(grunt) {
   // Default task(s).
   grunt.registerTask('minify', ['uglify']);
   grunt.registerTask('test', ['simplemocha']);
-  grunt.registerTask('build', ['concat']);
+  grunt.registerTask('build', ['concat', 'uglify']);
 
 };
