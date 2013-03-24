@@ -14,17 +14,8 @@ module.exports = function(grunt) {
         dest: 'build/<%= pkg.name.toLowerCase() %>.min.js'
       }
     },
-    
-    simplemocha: {
-      options: {
-        globals: ['should'],
-        timeout: 3000,
-        ignoreLeaks: false,
-        grep: '*-test',
-        ui: 'bdd',
-        reporter: 'tap'
-      },
 
+    simplemocha: {
       all: { src: 'test/*.js' }
     }
   });
@@ -33,7 +24,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-simple-mocha');
 
   // Default task(s).
-  grunt.registerTask('default', ['uglify']);
+  grunt.registerTask('minify', ['uglify']);
   grunt.registerTask('test', ['simplemocha']);
 
 };
