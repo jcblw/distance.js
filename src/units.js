@@ -4,8 +4,6 @@
  * - needs to extend boolean
  */
 
- // needs to be smarter for now this is good tho
-
 (function(exports){
 
 	Number.prototype.kilometer = function(){
