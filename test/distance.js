@@ -44,5 +44,20 @@ describe("Distance", function(){
 		it("should set the starts second value to the same value as argument and parse a float", function(){
 			assert.equal(1212312, Distance().to(["123.12","1212312"]).destination[1])
 		})
+		// need to test values of multi locations
+		//==========================================================
+		it("should return an accurate km distance when from is called before", function(){
+			//distance calculated by http://www.nhc.noaa.gov/gccalc.shtml
+			// number is rounded
+			assert.equal(48, Math.round(Distance().from([33.9533,117.3953]).to([34.1361,117.8644])))
+		})
+		it("should return an array of accurate km distance when from is called before", function(){
+			//distance calculated by http://www.nhc.noaa.gov/gccalc.shtml
+			// number is rounded
+			var result = Distance().from([[33.9533,117.3953]]).to([34.1361,117.8644]);
+			assert.equal(48, Math.round(result[0]))
+			assert.equal(true, (typeof result === "object" && result.length))
+		})
+
 	})
 })

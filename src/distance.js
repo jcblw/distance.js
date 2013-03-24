@@ -10,7 +10,7 @@
 			return new Distance(unit);
 		}
 		this.unit = unit;
-		this.earthRadius = 6371;
+		this.earthRadius =  6378.1;
 	};
 
 	Distance.prototype.Radius = function(interger){
@@ -31,7 +31,7 @@
 
 				for(var i = 0; i < position.length; i += 1){
 					var pos = position[i];
-					this.start.push([this.Int(pos[0]), this.Int(pos[0])]);
+					this.start.push([this.Int(pos[0]), this.Int(pos[1])]);
 				}
 
 				this.multi = 1;
@@ -80,29 +80,24 @@
 	Distance.prototype.near = function(position){
 		
 		this.start = [this.Int(position[0]), this.Int(position[1])];
-
 		return this.calculate();
 
 	};
 
-	Distance.prototype.get = function(start , destination, decimals){
+	Distance.prototype.get = function(start , destination){
 	
 		var lat = this.Radius(destination[0] - start[0]);
 		var lng = this.Radius(destination[1] - start[1]);
 		start[0] = this.Radius(start[0]);
 		destination[0] = this.Radius(destination[0]);
-		var a = Math.sin(lat / 2) * 
-				Math.sin(lat / 2) +
-        		Math.sin(lng / 2) * 
-        		Math.sin(lng / 2) * 
+		var a = Math.pow(Math.sin(lat / 2), 2) + 
+				Math.pow(Math.sin(lng / 2), 2) *
         		Math.cos(start[0]) * 
         		Math.cos(destination[0]);
 		var c = 2 * 
 				Math.atan2(Math.sqrt(a), 
 				Math.sqrt(1 - a));
-		var d = this.earthRadius * c;
-		return ( Math.round( d * Math.pow(10, decimals)) / 
-			   Math.pow(10, decimals)) * 1000;
+		return this.earthRadius * c;
 	};
 
 	Distance.prototype.calculate = function(){
@@ -110,13 +105,13 @@
 		if(this.multi){
 			var result = [];
 			// loop through all destinations
-			for(var i = 0; i < this.destination.length; i += 1){
-				result.push(this.get(this.start, this.destination, 2));
+			for(var i = 0; i < this.start.length; i += 1){
+				result.push(this.get(this.start[i], this.destination));
 			}
 			return result;
 		}else{
 			// only one position to compare
-			return this.get(this.start, this.destination, 2);
+			return this.get(this.start, this.destination);
 		}
 	};
 
