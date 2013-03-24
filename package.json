@@ -1,6 +1,6 @@
 {
   "name": "Distance",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "private": false,
   "author": "Jacob Lowe <http://jacoblowe.me>",
   "devDependencies": {
