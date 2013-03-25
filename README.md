@@ -1,7 +1,5 @@
 # Distance.js
 
-This is just a shell of a repo right now for planning a build
-
 A Small Utility to calulate distance from a latitude and longitude points.
 
 ```javascript
