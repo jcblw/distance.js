@@ -10,9 +10,10 @@ Distance().from([lat, lng]).to([lat, lng]).unit('miles')
 var home = Distance().from([lat, lng]);
 var nearby = [];
 var locations = [/*...*/];
-for(var i = 0; i < location.length; i += 1){
+for(var i = 0; i < locations.length; i += 1){
+  var location = locations[i];
   // use the same instance over and over
-  if(home.to(location).unit('miles') < 3){
+  if(home.to(location.center).unit('miles') < 3){
     nearby.push(location)
   }  
 }
@@ -23,6 +24,8 @@ for(var i = 0; i < location.length; i += 1){
 - kilometers
 - miles
 - feet
+
+Unit conversion is handled in the prototype of `Number` and is subject to change
 
 #### more methods to be added
 
