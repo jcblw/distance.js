@@ -1,5 +1,5 @@
 /*
- * Distance.js - 0.0.5 
+ * Distance.js - 0.0.6 
  * Author : Jacob Lowe <http://jacoblowe.me> 
  */
 
@@ -78,26 +78,20 @@
 
 	};
 
-	Distance.prototype.near = function(position){
-		
-		this.start = [this.Int(position[0]), this.Int(position[1])];
-		return this.calculate();
-
-	};
-
 	Distance.prototype.get = function(start , destination){
-	
+
 		var lat = this.Radius(destination[0] - start[0]);
 		var lng = this.Radius(destination[1] - start[1]);
-		start[0] = this.Radius(start[0]);
+		var startpos = this.Radius(start[0]);
 		destination[0] = this.Radius(destination[0]);
 		var a = Math.pow(Math.sin(lat / 2), 2) + 
 				Math.pow(Math.sin(lng / 2), 2) *
-        		Math.cos(start[0]) * 
+        		Math.cos(startpos) * 
         		Math.cos(destination[0]);
 		var c = 2 * 
 				Math.atan2(Math.sqrt(a), 
 				Math.sqrt(1 - a));
+				
 		return this.earthRadius * c;
 	};
 
