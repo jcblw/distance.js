@@ -1,11 +1,11 @@
 language: node_js
 branches:
-	only:
-		- master
+  only:
+  - master
 node_js:
-	- 0.8
+  - 0.8
+  - 0.9
 
 notifications:
-	email:
-		- ping@jacoblowe.me
-	irc: "sudo.servebeer.com#eGood"
+  email:
+    - ping@jacoblowe.me
