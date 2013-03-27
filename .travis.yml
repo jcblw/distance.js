@@ -8,3 +8,4 @@ node_js:
 notifications:
 	email:
 		- ping@jacoblowe.me
+	irc: "sudo.servebeer.com#eGood"
