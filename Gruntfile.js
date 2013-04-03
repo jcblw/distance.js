@@ -42,7 +42,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
 
   grunt.registerTask('minify', ['uglify']);
-  grunt.registerTask('test', ['simplemocha']);
+  grunt.registerTask('test', ['simplemocha', "jshint"]);
   grunt.registerTask('build', ['concat', 'uglify']);
   grunt.registerTask("default", ["simplemocha", "jshint", "concat", "uglify"]);
 
