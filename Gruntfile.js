@@ -1,25 +1,27 @@
 module.exports = function(grunt) {
 
-  // Project configuration.
-  var banner =  '/*\n * <%= pkg.name %>.js - <%= pkg.version %> \n' + 
-                ' * Author : <%= pkg.author %> \n' +
-                ' */\n\n'
+  // Project configuration
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    banner : '/*\n * <%= pkg.name %>.js - <%= pkg.version %> \n' + 
+      ' * Author : <%= pkg.author %> \n' +
+      ' */\n\n',
     uglify: {
       options: {
-        banner: banner
+        banner: "<%=banner%>"
       },
       build: {
         src: ['src/<%= pkg.name.toLowerCase() %>.js', 'src/units.js'],
         dest: 'build/<%= pkg.name.toLowerCase() %>.min.js'
       }
     },
-
+    jshint: {
+      all: ['Gruntfile.js', 'src/*.js']
+    },
     concat: {
       options: {
-        banner: banner,
+        banner: "<%=banner%>",
         separator: '\n\n',
         stripBanners : true
       },
@@ -37,10 +39,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-simple-mocha');
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
 
-  // Default task(s).
   grunt.registerTask('minify', ['uglify']);
   grunt.registerTask('test', ['simplemocha']);
   grunt.registerTask('build', ['concat', 'uglify']);
+  grunt.registerTask("default", ["simplemocha", "jshint", "concat", "uglify"]);
 
 };

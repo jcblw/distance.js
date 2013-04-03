@@ -6,9 +6,12 @@
 
 (function(exports){
 
+	// need to pull these out and have only one object
+	// modifing the Number prototype
+
 	Number.prototype.kilometer = function(){
 		this.converted = true;
-		return this.valueOf()
+		return this.valueOf();
 	};
 
 	Number.prototype.miles = function(){
@@ -26,7 +29,6 @@
 			return this[unit]();
 		}else{
 			throw new Error("One one conversion is possible at this time");
-			return null;
 		}
 	};
 
