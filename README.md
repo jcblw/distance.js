@@ -4,6 +4,8 @@
 
 A Small Utility to calulate distance from a latitude and longitude points.
 
+> Warning Javascript in general is not the greatest at math when dealing with large numbers... You have been warned
+
 ```javascript
 Distance().from([lat, lng]).to([lat, lng]).unit('miles')
 // returns kilometers by default
