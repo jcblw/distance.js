@@ -12,12 +12,12 @@
   // specify, right now the sphere radius is static but could be changed to
   // allow the calculation between two locations on other planets
 
-  var Distance = function(unit){
+  var Distance = function(unit, radius){
     if(!(this instanceof Distance)){
-      return new Distance(unit);
+      return new Distance(unit, radius);
     }
     this.unit = unit;
-    this.earthRadius =  6378.1;
+    this._radius =  this.Int(radius) || 6378.1;
     return this;
   };
 
@@ -121,7 +121,7 @@
         Math.atan2(Math.sqrt(a), 
         Math.sqrt(1 - a));
         
-    return this.earthRadius * c; // and assuming we are using two points on earth
+    return this._radius * c; // and assuming we are using two points on earth
   };
 
   // Distance::calculate

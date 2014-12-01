@@ -6,6 +6,9 @@ describe("Distance", function(){
 	it("should return a new instance of itself", function(){
 		assert.equal(true, Distance() instanceof Distance)
 	})
+	it("should set the radius of Distance itself used for the calculations", function(){
+		assert.equal(1195, Distance(null, 1195)._radius )
+	})
 	describe(".from()", function(){
 		it("should return an instanceof Distance", function(){
 			assert.equal(true, Distance().from([12312,1212312]) instanceof Distance)
