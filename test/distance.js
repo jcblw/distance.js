@@ -73,6 +73,12 @@ describe("Distance", function(){
 	})
 })
 
+// we can trust javascript math to a certian decimal point cutting off here at the 7th decimal place over.
+// this is really shitty but if your looking for a super accurate numbers dont use javascript
+function cutoffNumbers( num ) {
+	return Math.floor( ( num * 1000000000 ) ) / 1000000000;
+}
+
 describe("Number.prototype", function(){
 	describe(".unit()", function(){
 		var x = 28
@@ -84,7 +90,7 @@ describe("Number.prototype", function(){
 		})
 		it("should work with the return of Distance", function(){
 			var result = Distance().from([33.9533,117.3953]).to([34.1361,117.8644]);
-			assert.equal(29.711075704956006, result.unit('miles'));
+			assert.equal( cutoffNumbers( 29.711075704956006 ), cutoffNumbers( result.unit('miles') ) );
 		})
 	})
 })
@@ -96,7 +102,7 @@ describe("Array.prototype", function(){
 		})
 		it("should return an array of converted distances", function(){
 			var result = Distance().from([[33.9533,117.3953]]).to([34.1361,117.8644]);
-			assert.equal(29.711075704956006, result.unit('miles')[0]);
+			assert.equal(cutoffNumbers( 29.711075704956006 ), cutoffNumbers( result.unit('miles')[0] ));
 			assert.equal("object", typeof result.unit('miles'));
 		})
 	})
