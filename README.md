@@ -1,4 +1,4 @@
-# Distance.js [![Build Status][![Build Status](https://travis-ci.org/jcblw/distance.js.svg?branch=master)](https://travis-ci.org/jcblw/distance.js)
+# Distance.js [![Build Status](https://travis-ci.org/jcblw/distance.js.svg?branch=master)](https://travis-ci.org/jcblw/distance.js)
 
 A Small Utility to calulate distance from a latitude and longitude points.
 
