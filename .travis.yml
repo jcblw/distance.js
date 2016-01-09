@@ -3,11 +3,8 @@ branches:
   only:
   - master
 node_js:
-  - 0.10
-  - 0.11
-
-before_script:
-  - npm install -g grunt-cli
+  - 4
+  - 5
 
 notifications:
   email:
