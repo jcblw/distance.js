@@ -1,5 +1,7 @@
 # Distance.js [![Build Status](https://travis-ci.org/jcblw/distance.js.svg?branch=master)](https://travis-ci.org/jcblw/distance.js)
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/jcblw/distance.js.svg)](https://greenkeeper.io/)
+
 A Small Utility to calulate distance from a latitude and longitude points.
 
 > Warning Javascript in general is not the greatest at math when dealing with large numbers... You have been warned
