@@ -4,8 +4,8 @@ branches:
   - master
   - /^greenkeeper/.*$/
 node_js:
-  - 4
-  - 5
+  - 8
+  - 10
 
 notifications:
   email:
